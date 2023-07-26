@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { fakeData } from "../data/fakeData";
 import { useNavigate } from "react-router-dom";
+import Button from "../ui/Button";
 
 function Products() {
   const [products, setProducts] = useState(null);
@@ -26,13 +27,16 @@ function Products() {
   return (
     <section className="flex flex-col gap-y-8 min-h-screen justify-center">
       <h2 className="text-center font-bold text-4xl">Products</h2>
-      <article className="max-w-[1200px] grid grid-cols-3 mx-auto gap-14">
+      <article
+        className="max-w-[1200px] flex flex-col sm:grid-cols-2 sm:grid md:grid-cols-3 sm:auto-cols-fr px-5 
+                          mx-auto gap-x-10 gap-y-20"
+      >
         {products &&
           products.map((product, index) => {
             const { id, title, price, category, description, image, review } =
               product;
             return (
-              <div key={uuidv4()} className="flex flex-col w-[300px]">
+              <div key={uuidv4()} className="flex flex-col">
                 <figure
                   onClick={() =>
                     navigate(`/products/${title}`, {
@@ -61,7 +65,14 @@ function Products() {
                   ></div>
                 </figure>
                 <h3 className="mt-2">{title}</h3>
-                <p className="font-bold text-lg">${price}</p>
+                <p className="font-bold text-lg pb-5">${price}</p>
+                <Button
+                  props={{
+                    bg: "bg-gray-200",
+                    width: "w-full",
+                    name: "Add to cart",
+                  }}
+                />
               </div>
             );
           })}
