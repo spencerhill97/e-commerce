@@ -29,7 +29,7 @@ function Products() {
       <h2 className="text-center font-bold text-4xl">Products</h2>
       <article
         className="max-w-[1200px] flex flex-col sm:grid-cols-2 sm:grid md:grid-cols-3 sm:auto-cols-fr px-5 
-                          mx-auto gap-x-10 gap-y-20"
+                          mx-auto gap-x-14 gap-y-20"
       >
         {products &&
           products.map((product, index) => {
@@ -51,7 +51,7 @@ function Products() {
                       },
                     })
                   }
-                  className="relative rounded-md cursor-pointer aspect-square"
+                  className="relative rounded-md cursor-pointer aspect-square max-w-[300px]"
                 >
                   <img
                     className="object-cover rounded-md"
